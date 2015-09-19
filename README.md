@@ -24,7 +24,9 @@ var getSteamAPIKey = require('steam-web-api-key');
 getSteamAPIKey({ sessionID: sessionID, webCookie: cookies }, callback);
 ```
 
-The second argument to callback will be your API key.
+The second argument to the callback will be your API key.
+
+If failed to retrieve Web API key due to [limited account](https://support.steampowered.com/kb_article.php?ref=3330-IAGK-7663), it will return `Access Denied` error in the callback.
 
 ## License
 
