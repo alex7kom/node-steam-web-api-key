@@ -20,12 +20,15 @@ module.exports = function getAPIKey (options, callback) {
 
     var $ = cheerio.load(body);
 
-    if ($('#mainContents h2').html() === 'Access Denied') {
+    if ($('#mainContents h2').text() === 'Access Denied') {
       return callback(new Error('Access Denied'));
     }
 
-    if ($('#bodyContents_ex h2').html() === 'Your Steam Web API Key') {
-      var key = $('#bodyContents_ex p').html().split(' ')[1];
+    if ($('#bodyContents_ex h2').text() === 'Your Steam Web API Key') {
+      var key = $('#bodyContents_ex p')
+        .eq(0)
+        .text()
+        .split(' ')[1];
       return callback(null, key);
     }
 
