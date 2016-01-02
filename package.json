@@ -1,6 +1,6 @@
 {
   "name": "steam-web-api-key",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Automatically registers and retrieves Steam API key",
   "author": "Alexey Komarov <alex7kom@gmail.com>",
   "license": "MIT",
