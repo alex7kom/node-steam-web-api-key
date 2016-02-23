@@ -30,18 +30,10 @@ module.exports = function getAPIKey (options, callback) {
         .text()
         .split(' ')[1];
       return callback(null, key);
-    }
+    }else{
+      return callback(new Error('No api key is set up for this account'));
+     }
 
-    _request.post({
-      uri: steamDomain + '/dev/registerkey',
-      form: {
-        domain: 'localhost',
-        agreeToTerms: 'agreed',
-        sessionid: options.sessionID,
-        submit: 'Register'
-      }
-    }, function () {
-      getAPIKey(options, callback);
-    });
+    
   });
 };
