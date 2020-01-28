@@ -35,7 +35,7 @@ module.exports = function getAPIKey (options, callback) {
     _request.post({
       uri: steamDomain + '/dev/registerkey',
       form: {
-        domain: 'localhost',
+        domain: options.domain || 'localhost',
         agreeToTerms: 'agreed',
         sessionid: options.sessionID,
         submit: 'Register'
